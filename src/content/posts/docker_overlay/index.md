@@ -7,7 +7,7 @@ category: Service
 draft: false
 ---
 # 进入docker目录，找到docker 容器目录
-```Bash
+```bash
 $ cd /var/lib/docker/containers && ls -ll
 total 12
 drwx--x--- 4 root root 4096 Nov  1 02:02 21296f3504e09953864b2240c0e15425c792d0c5b04c3d5b9cf649fb9a485053
@@ -16,7 +16,7 @@ drwx--x--- 4 root root 4096 Nov  1 02:02 93da05ad5d9d2ce691f418f6a205c25f365ce95
 ```
 
 # 清理容器子目录中的json.log文件
-```Bash
+```bash
 
 $ cat /dev/null > /var/lib/docker/containers/21296f3504e09953864b2240c0e15425c792d0c5b04c3d5b9cf649fb9a485053/*-json.log
 $ cat /dev/null > /var/lib/docker/containers/93da05ad5d9d2ce691f418f6a205c25f365ce959404ca6cefc39574e37d01f51/*-json.log
