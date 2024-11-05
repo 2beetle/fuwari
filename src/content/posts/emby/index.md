@@ -8,7 +8,8 @@ category: Service
 draft: false
 ---
 
-# 在家里云中下载emby [下载地址](https://emby.media/download.html)
+# 在家里云中下载emby 
+- [下载地址](https://emby.media/download.html)
 # 使用zerotier 节点将emby流量到家里云
 - 节点 nginx配置
     ```shell
