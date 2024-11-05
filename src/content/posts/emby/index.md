@@ -1,17 +1,17 @@
 ---
 title: 部署emby服
 published: 2024-10-23
-description: 在macmini中搭建emby服务
+description: 家里云搭建emby服务
 image: ./cover.jpg
 tags: [emby]
 category: Service
 draft: false
 ---
 
-1. 在macmini中下载emby [emby下载地址](https://emby.media/download.html)
-2. 使用zerotier moon节点转发emby流量到家里云
-    - nginx配置
-    ```
+# 在家里云中下载emby [下载地址](https://emby.media/download.html)
+# 使用zerotier 节点将emby流量到家里云
+- 节点 nginx配置
+    ```shell
     user www-data;
     worker_processes auto;
     pid /run/nginx.pid;
@@ -78,7 +78,7 @@ draft: false
         }
     
         location / {
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -94,7 +94,7 @@ draft: false
         }
     
         location /web/ {
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -111,7 +111,7 @@ draft: false
         }
     
         location = /embywebsocket {
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -127,7 +127,7 @@ draft: false
         }
     
         location /emby/videos/ {
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -146,7 +146,7 @@ draft: false
         location ~ ^/emby/videos/\d+/(?!live|\w+\.m3u8|hls1) {
             slice 14m;
     
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -171,7 +171,7 @@ draft: false
         }
     
         location ~ ^/emby/Items/.*/Images/ {
-            proxy_pass http://emby-backend;
+            proxy_pass https://emby-backend;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
             proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -192,6 +192,14 @@ draft: false
     }
     }
     ```
+# 配置emby ssl
+1. 获取 **PKCS #12** 格式证书，若是已有其他格式的证书可以通过[证书格式转换器](https://www.sslshopper.com/ssl-converter.html)转换
+   - ![PEM2PKCS#12](https://minio-api.beocean.net/media/be/screenshot-20241105-111012.png)
+2. 配置emby server
+   - ![示例](https://minio-api.beocean.net/media/be/screenshot-20241105-110159.png)
+
+# 参考文章
+1. [Secure Your Server](https://emby.media/support/articles/Secure-Your-Server.html#setup-emby-with-your-domain-and-ssl-certificate)
 
 
 
