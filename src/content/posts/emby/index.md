@@ -195,9 +195,9 @@ draft: false
     ```
 # 配置emby ssl
 1. 获取 **PKCS #12** 格式证书，若是已有其他格式的证书可以通过[证书格式转换器](https://www.sslshopper.com/ssl-converter.html)转换
-   ![PEM2PKCS#12](https://minio-api.beocean.net/media/be/screenshot-20241105-111012.png)
+   ![PEM2PKCS#12](images/screenshot-20241105-111012.png)
 2. 配置emby server
-   ![示例](https://minio-api.beocean.net/media/be/screenshot-20241105-110159.png)
+   ![示例](images/screenshot-20241105-110159.png)
 
 # 参考文章
 1. [Secure Your Server](https://emby.media/support/articles/Secure-Your-Server.html#setup-emby-with-your-domain-and-ssl-certificate)
