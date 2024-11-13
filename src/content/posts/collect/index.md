@@ -3,7 +3,7 @@ title: 收藏文章
 published: 2024-11-07
 description: 收藏的文章
 tags: [备份]
-category: category
+category: Collect
 draft: false
 ---
 # 备份
