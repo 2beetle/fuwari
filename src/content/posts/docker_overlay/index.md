@@ -4,6 +4,7 @@ published: 2024-11-01
 description: 解决docker overlay2占用过大的问题
 tags: [docker, overlay2]
 category: Service
+image: ./images/docker.png
 draft: false
 ---
 # 进入docker目录，找到docker 容器目录

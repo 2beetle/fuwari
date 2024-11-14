@@ -4,6 +4,7 @@ published: 2024-11-09
 description: 利用快捷指令 + 休息日 app + 日历日程在 mac 中实现计划定时开关docker desktop
 tags: [mac,快捷指令]
 category: Record
+image: ./images/kjzl.png
 draft: false
 ---
 > 因为某种原因，需要实现每天晚上定时关闭 mac 的 docker 以及在工作日早上定时开启 docker，因此有了这个记录
